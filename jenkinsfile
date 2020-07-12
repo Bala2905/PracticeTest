@@ -1,35 +1,24 @@
-pipeline {
-    agent any 
-    stages {
-        stage('Build') { 
-            steps {
-               withMaven(maven : 'maven_3_5_0') {
-               bat "mvn clean"
-               }
-               
-            }
-        }
-        stage('Test') { 
-            steps {
-               withMaven(maven : 'maven_3_5_0') {
-               bat "mvn test"
-               } 
-            }
-        }
-        
-        stage('Compile') { 
-            steps {
-               withMaven(maven : 'maven_3_5_0') {
-               bat "mvn compile"
-               } 
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                withMaven(maven : 'maven_3_5_0') {
-               bat "mvn deploy" 
-               }
-            }
-        }
-    }
+pipeline{
+agent any
+stages 
+{
+stage('Build') 
+{
+steps{
+echo "Building the Project.........."
+}
+}
+stage('Test') 
+{
+steps{
+echo "Testing the Project.........."
+}
+}
+stage('Deploy') 
+{
+steps{
+echo "Deploying the Project.........."
+}
+}
+}
 }
